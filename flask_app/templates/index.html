@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <main class="col-6 mx-auto d-flex justify-content-between">
+        <div class="col-5 bg-dark">
+            <form action="/register" method='post' class="text-light">
+                <h1 class="p-3 text-primary">Register</h1>
+                {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+                <div class="form-group row px-3">
+                    <label for="first_name" class="">First Name:</label>
+                    <input type="text" name="first_name" class="form-control">
+                </div>
+                <div class="form-group row px-3">
+                    <label for="last_name" class="">Last Name:</label>
+                    <input type="text" name="last_name" class="form-control">
+                </div>
+                <div class="form-group row px-3">
+                    <label for="email" class="">Email:</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+                <div class="form-group row px-3">
+                    <label for="password" class="">Password:</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <div class="form-group row px-3">
+                    <label for="confirm" class="">Confirm Password:</label>
+                    <input type="password" name="confirm" class="form-control">
+                </div>
+                <input type="submit" value="Register" class="text-light bg-primary mb-3 btn btn-sm">
+            </form>
+        </div>
+        <div class="col-5 bg-dark">
+            <form action="/user_login" method='post' class="text-light">
+                <h1 class="p-3 text-success">Login</h1>
+                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+                <div class="form-group row px-3">
+                    <label for="email" class="">Email:</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+                <div class="form-group row px-3">
+                    <label for="password" class="">Password:</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <input type="submit" value="Login" class="text-light bg-success mb-3 btn btn-sm">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
